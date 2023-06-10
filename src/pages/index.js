@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Home ({ arrayPokemonReduce }) {
+  // Implementando búsqueda por nombre de pokemon, ignorando mayúsculas y minúsculas
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState(arrayPokemonReduce)
 
@@ -63,7 +64,7 @@ export async function getServerSideProps () {
     const data = await GetPokemons(i)
     arrayPokemons.push(data)
   }
-
+  // Mejorando el rendimiento al cargar el array de pokemon
   const arrayPokemonReduce = arrayPokemons.map(poke => {
     return ({
       id: poke.id,
