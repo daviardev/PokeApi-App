@@ -1,8 +1,27 @@
+import Link from 'next/link'
+
 export default function Home ({ arrayPokemonReduce }) {
-  console.log(arrayPokemonReduce)
   return (
     <>
-
+      <div>
+        <ul>
+          {arrayPokemonReduce.map((poke, index) => (
+            <li key={index}>
+              <Link href={`pokemon/${poke.id}`}>
+                <div>
+                  <div>
+                    <h3>{poke.name}</h3>
+                    <img
+                      src={poke.url}
+                      alt={poke.name}
+                    />
+                  </div>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
