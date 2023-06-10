@@ -1,5 +1,5 @@
-export default function Home ({ arrayPokemons }) {
-  console.log(arrayPokemons)
+export default function Home ({ arrayPokemonReduce }) {
+  console.log(arrayPokemonReduce)
   return (
     <>
 
@@ -27,9 +27,18 @@ export async function getServerSideProps () {
     arrayPokemons.push(data)
   }
 
+  const arrayPokemonReduce = arrayPokemons.map(poke => {
+    return ({
+      id: poke.id,
+      name: poke.name,
+      url: poke.sprites.other.dream_world.front_default,
+      types: poke.types
+    })
+  })
+
   return {
     props: {
-      arrayPokemons
+      arrayPokemonReduce
     }
   }
 }
