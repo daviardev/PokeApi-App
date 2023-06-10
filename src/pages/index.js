@@ -1,11 +1,29 @@
+import { useState } from 'react'
+
 import Link from 'next/link'
 
 export default function Home ({ arrayPokemonReduce }) {
+  const [search, setSearch] = useState('')
+  const [filter, setFilter] = useState(arrayPokemonReduce)
+
+  const HandleSearch = e => {
+    const value = e.target.value
+    setSearch(value)
+
+    const filtered = arrayPokemonReduce.filter(poke =>
+      poke.name.toLowerCase().includes(value.toLowerCase())
+    )
+    setFilter(filtered)
+  }
   return (
     <>
       <div>
         <ul>
-          {arrayPokemonReduce.map((poke, index) => (
+          <input
+            value={search}
+            onChange={HandleSearch}
+          />
+          {filter.map((poke, index) => (
             <li key={index}>
               <Link href={`pokemon/${poke.id}`}>
                 <div>
