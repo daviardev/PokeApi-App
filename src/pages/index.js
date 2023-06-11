@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Home ({ arrayPokemonReduce }) {
-  // Implementando búsqueda por nombre de pokemon, ignorando mayúsculas y minúsculas
+  // Implementando búsqueda por nombre y tipo de pokemon, ignorando mayúsculas y minúsculas
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState(arrayPokemonReduce)
 
@@ -11,9 +11,13 @@ export default function Home ({ arrayPokemonReduce }) {
     const value = e.target.value
     setSearch(value)
 
-    const filtered = arrayPokemonReduce.filter(poke =>
-      poke.name.toLowerCase().includes(value.toLowerCase())
-    )
+    const filtered = arrayPokemonReduce.filter(poke => {
+      const nameMatch = poke.name.toLowerCase().includes(value.toLowerCase())
+      const typeMatch = poke.type.some(type =>
+        type.type.name.toLowerCase().includes(value.toLowerCase())
+      )
+      return nameMatch || typeMatch
+    })
     setFilter(filtered)
   }
   return (
@@ -26,7 +30,7 @@ export default function Home ({ arrayPokemonReduce }) {
           />
           {filter.map((poke, index) => (
             <li key={index}>
-              <Link href={`pokemon/${poke.id}`}>
+              <Link href={`pokemon/${poke.name}`}>
                 <div>
                   <div>
                     <h3>{poke.name}</h3>
@@ -35,6 +39,13 @@ export default function Home ({ arrayPokemonReduce }) {
                       alt={poke.name}
                     />
                   </div>
+                  {poke.type.map((type, index) => {
+                    return (
+                      <div key={index}>
+                        <span>{type.type.name}</span>
+                      </div>
+                    )
+                  })}
                 </div>
               </Link>
             </li>
@@ -60,7 +71,7 @@ export async function getServerSideProps () {
   // Lista los 20 pokemon para guardarlos en un array
   const arrayPokemons = []
 
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 50; i++) {
     const data = await GetPokemons(i)
     arrayPokemons.push(data)
   }
@@ -70,7 +81,7 @@ export async function getServerSideProps () {
       id: poke.id,
       name: poke.name,
       url: poke.sprites.other.dream_world.front_default,
-      types: poke.types
+      type: poke.types
     })
   })
 
