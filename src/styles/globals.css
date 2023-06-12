@@ -1,3 +1,194 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html,
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+@layer base {
+    body {
+        background: url('../assets/background.png') no-repeat center center fixed;
+        background-color: #1e1e1e;
+        background-size: cover;
+    }
+}
+
+@layer utilities {
+    .section {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 1em 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        max-width: 1024px;
+        background-color: #292929;
+        background-size: 100% 1px;
+        font-family: "Ubuntu", sans-serif;
+    }
+
+    .bug {
+        background: #aedf78;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .water {
+        background: #43ccff;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .grass {
+        background: #00ca91;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .fire {
+        background: #e95c4d;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .normal {
+        background: #a5a5a5;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .poison {
+        background: #611380;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .electric {
+        background: #f9be00;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .ground {
+        background: #bfac21;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .fairy {
+        background: #f87ea7;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .fighting {
+        background: #e81319;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .psychic {
+        background: #8a0532;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .ghost {
+        background: #8e55a4;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .rock {
+        background: #776a3e;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .ice {
+        background: #66d1e5;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .flying {
+        background: #5eb9b2;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .dark {
+        background: #2d221c;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .dragon {
+        background: #29036a;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .steel {
+        background: #7b8e8a;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .unknown {
+        background: #454545;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+
+    .shadow {
+        background: #4f4f4f;
+        border-radius: 12px;
+        position: absolute;
+        width: 80px;
+        height: 16px;
+    }
+}
